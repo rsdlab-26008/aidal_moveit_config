@@ -1,0 +1,30 @@
+# Default initial positions for RealMan_AIDAL's ros2_control fake system
+
+initial_positions:
+  head_joint1: 0.0
+  head_joint2: 0.0
+  left_4C2_Joint1: 0.82
+  left_4C2_Joint2: 0.82
+  left_4C2_Joint3: -0.82
+  left_4C2_Joint4: -0.82
+  left_4C2_Joint5: 0.82
+  left_4C2_Joint6: 0.82
+  left_joint1: 0.0
+  left_joint2: 0.0
+  left_joint3: 0.0
+  left_joint4: 0.0
+  left_joint5: 0.0
+  left_joint6: 0.0
+  lift_joint: 0.0
+  right_4C2_Joint1: 0.82
+  right_4C2_Joint2: 0.82
+  right_4C2_Joint3: -0.82
+  right_4C2_Joint4: -0.82
+  right_4C2_Joint5: 0.82
+  right_4C2_Joint6: 0.82
+  right_joint1: 0.0
+  right_joint2: 0.0
+  right_joint3: 0.0
+  right_joint4: 0.0
+  right_joint5: 0.0
+  right_joint6: 0.0

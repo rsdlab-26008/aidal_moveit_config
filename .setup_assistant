@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: aidal_description
+    relative_path: xacro/aidal_main.urdf.xacro
+  srdf:
+    relative_path: config/RealMan_AIDAL.srdf
+  package_settings:
+    author_name: rsdlab
+    author_email: rsdlab@sample.com
+    generated_timestamp: 1777530922
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

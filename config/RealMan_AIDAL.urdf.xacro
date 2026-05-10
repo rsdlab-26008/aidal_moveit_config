@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="RealMan_AIDAL">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import RealMan_AIDAL urdf file -->
+    <xacro:include filename="$(find aidal_description)/xacro/aidal_main.urdf.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="RealMan_AIDAL.ros2_control.xacro" />
+
+
+    <xacro:RealMan_AIDAL_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

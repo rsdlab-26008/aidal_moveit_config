@@ -1,0 +1,69 @@
+# MoveIt uses this configuration for controller management
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - left_arm_controller
+    - right_arm_controller
+    - left_gripper_controller
+    - right_gripper_controller
+    - lift_controller
+    - head_controller
+
+  left_arm_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    joints:
+      - left_joint1
+      - left_joint2
+      - left_joint3
+      - left_joint4
+      - left_joint5
+      - left_joint6
+  right_arm_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    joints:
+      - right_joint1
+      - right_joint2
+      - right_joint3
+      - right_joint4
+      - right_joint5
+      - right_joint6
+  left_gripper_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    joints:
+      - left_4C2_Joint1
+      - left_4C2_Joint2
+      - left_4C2_Joint3
+      - left_4C2_Joint4
+      - left_4C2_Joint5
+      - left_4C2_Joint6
+  right_gripper_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    joints:
+      - right_4C2_Joint1
+      - right_4C2_Joint2
+      - right_4C2_Joint3
+      - right_4C2_Joint4
+      - right_4C2_Joint5
+      - right_4C2_Joint6
+  lift_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    joints:
+      - lift_joint
+  head_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    joints:
+      - head_joint1
+      - head_joint2

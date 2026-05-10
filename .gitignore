@@ -1,0 +1,13 @@
+# ROS2 ビルド生成物
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# エディタ
+.vscode/
+*.swp
