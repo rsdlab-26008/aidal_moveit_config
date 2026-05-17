@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="Box">
+  <static>true</static>
+  <pose>0 0 0 0 0 0</pose>
+    <link name="Box">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="Box_visual">
+        <geometry><mesh><uri>model://Box/meshes/Box.stl</uri></mesh></geometry>
+        <material>
+        <script>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+          <name>Gazebo/Wood</name>
+        </script>
+        </material>
+      </visual>
+      <collision name="Box_collision">
+        <geometry><mesh><uri>model://Box/meshes/Box.stl</uri></mesh></geometry>
+      </collision>
+    </link>
+
+  </model>
+</sdf>

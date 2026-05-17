@@ -1,0 +1,14 @@
+material Logo/Texture
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Logo.png
+        scale 1.0 1.0
+      }
+    }
+  }
+}

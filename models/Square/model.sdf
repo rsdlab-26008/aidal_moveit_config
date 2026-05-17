@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="Square">
+  <pose>0 0 0 0 0 1.57</pose>
+    <link name="Square">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="Square_visual">
+        <geometry><mesh><uri>model://Square/meshes/Square.stl</uri></mesh></geometry>
+        <material>
+        <script>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+          <name>Gazebo/Blue</name>
+        </script>
+        </material>
+      </visual>
+      <collision name="Square_collision">
+        <geometry><mesh><uri>model://Square/meshes/Square.stl</uri></mesh></geometry>
+      </collision>
+    </link>
+
+  </model>
+</sdf>

@@ -12,12 +12,16 @@ def generate_launch_description():
     rm_pkg_path = get_package_share_directory('rm_description')
     moveit_config_path = get_package_share_directory('aidal_moveit_config')
     
-    world_file_path = os.path.join(moveit_config_path, 'worlds', 'pick_and_place.world')
+    # world_file_path = os.path.join(moveit_config_path, 'worlds', 'pick_and_place copy.world')
+    #fix
+    world_file_path = os.path.join(moveit_config_path, 'worlds', 'Task.world')
 
     install_dir_desc = os.path.dirname(os.path.dirname(desc_pkg_path))
     install_dir_rm = os.path.dirname(os.path.dirname(rm_pkg_path))
     install_dir_moveit = os.path.dirname(os.path.dirname(moveit_config_path))
-    gazebo_model_path = os.path.join(install_dir_desc, 'share') + ':' + os.path.join(install_dir_rm, 'share') + ':' + os.path.join(install_dir_moveit, 'share')
+    # gazebo_model_path = os.path.join(install_dir_desc, 'share') + ':' + os.path.join(install_dir_rm, 'share') + ':' + os.path.join(install_dir_moveit, 'share')
+    #fix
+    gazebo_model_path = os.path.join(install_dir_desc, 'share') + ':' + os.path.join(install_dir_rm, 'share') + ':' + os.path.join(install_dir_moveit, 'share') + ':' + os.path.join(moveit_config_path, 'models')
 
     set_gazebo_model_path = SetEnvironmentVariable(
         name='GAZEBO_MODEL_PATH',
@@ -54,7 +58,10 @@ def generate_launch_description():
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-topic', 'robot_description', '-entity', 'RealMan_AIDAL', '-z', '0.005'],
+        #test
+        # arguments=['-topic', 'robot_description', '-entity', 'RealMan_AIDAL', '-x', '0.35', '-y', '2.277', '-z', '0.005', '-Y', '1.5708'],
+        # arguments=['-topic', 'robot_description', '-entity', 'RealMan_AIDAL', '-x', '1.5', '-y', '-2.5', '-z', '0.005', '-Y', '1.5708'],
+        arguments=['-topic', 'robot_description', '-entity', 'RealMan_AIDAL', '-x', '0.7', '-y', '2.1', '-z', '0.005', '-Y', '1.5708'],
         output='screen')
 
     # コントローラーの起動設定

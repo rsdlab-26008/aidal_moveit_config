@@ -1,0 +1,507 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+  <max_step_size>0.001</max_step_size>
+  <real_time_update_rate>1000</real_time_update_rate>
+  <iters>50</iters>
+
+    <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+      <grid>false</grid>
+      <origin_visual>false</origin_visual>
+    </scene>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- fix -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- <model name='ground'>
+      <static>true</static>
+      <link name='ground_link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal> <size>200 200</size> 
+            </plane>
+          </geometry>
+
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.1 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>120 120</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grass</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model> -->
+
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+
+      <!-- fix -->
+      <solver>
+        <iters>500</iters>
+        <sor>1.3</sor>
+      </solver>
+      <constraints>
+        <cfm>0.0</cfm>
+        <erp>0.2</erp>
+      </constraints>
+
+    </physics>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <!-- <pose>1.48967 -3.48202 4.55054 -0 0.516 2.00718</pose> -->
+        <pose>11.503 8.665 9.109 0.0 0.582 -2.420</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- <include>
+      <name>Wall</name>
+      <uri>model://Wall</uri>
+      <pose>0 3 4.5 1.57079632679 0 3.14159265359</pose>
+    </include> -->
+
+    <include>
+      <name>Table1</name>
+      <uri>model://Table</uri>
+      <pose>0 2.965688 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>Box_red</name>
+      <uri>model://Box_red</uri>
+      <pose>3.35089 3.26 -0.09 0 -0 3.14159265359</pose>
+    </include>
+
+    <include>
+      <name>Box_blue</name>
+      <uri>model://Box_blue</uri>
+      <pose>-0.65 3.26 -0.09 0 0 -3.14159265359</pose>
+    </include>
+
+    <include>
+      <name>D1_blue</name>
+      <uri>model://D1_blue</uri>
+      <pose>0.6 3.02 1.151 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>D2_blue</name>
+      <uri>model://D1_blue</uri>
+      <pose>1.0 3.02 1.151 0 -0 0</pose>
+    </include>
+
+    <!-- <include>
+      <name>D1</name>
+      <uri>model://D1</uri>
+      <pose>2.8 3.02 1.151 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>D2</name>
+      <uri>model://D1</uri>
+      <pose>2.4 3.02 1.151 0 -0 0</pose>
+    </include> -->
+
+    <!-- fix -->
+    <model name="tray0">
+      <static>false</static>
+      <!-- <pose>2.6 0.0 0.165 0 0 1.5707963267948966</pose> -->
+      <pose>2.2 3.02 1.5 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0.00113</ixx> <ixy>0.0</ixy> <ixz>0.0</ixz>
+            <iyy>0.01718</iyy> <iyz>0.0</iyz> <izz>0.01854</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://aidal_moveit_config/meshes/tray.stl</uri>
+            </mesh>
+          </geometry>
+          <material><script><name>Gazebo/Wood</name></script></material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://aidal_moveit_config/meshes/tray.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction><ode><mu>0.8</mu><mu2>0.8</mu2></ode></friction>
+            <contact><ode><kp>1e5</kp><kd>1.0</kd><max_vel>0.1</max_vel><min_depth>0.001</min_depth></ode></contact>
+          </surface>
+        </collision>
+      </link>
+    </model>
+
+    <include>
+      <name>floor</name>
+      <uri>model://floor</uri>
+      <pose>3 3 4.503 -1.57079632679 0 0</pose>
+    </include>
+
+    <include>
+      <name>fence1</name>
+      <uri>model://fence</uri>
+      <pose>3.695756 -4.926656 0 0 0 -1.950725</pose>
+    </include>
+
+    <include>
+      <name>fence2</name>
+      <uri>model://fence</uri>
+      <pose>-0.367325 -0.953713 0 0 0 -0.361621</pose>
+    </include>
+
+    <include>
+      <name>fence3</name>
+      <uri>model://fence</uri>
+      <pose>3.286430 -0.953713 0 0 0 -0.361621</pose>
+    </include>
+
+    <include>
+      <name>fence4</name>
+      <uri>model://fence</uri>
+      <pose>-1.954880 3.245640 0 0 0 -0.361621</pose>
+    </include>
+
+    <include>
+      <name>fence5</name>
+      <uri>model://fence</uri>
+      <pose>4.694280 3.245640 0 0 0 -0.361621</pose>
+    </include>
+
+    <!-- <include>
+      <name>grey_wall</name>
+      <uri>model://grey_wall</uri>
+      <pose>1.4041 3.664178 0 0 0 0</pose>
+    </include> -->
+
+    <!-- <include>
+      <name>oaktree1</name>
+      <uri>model://oak_tree</uri>
+      <pose>-3.07328 -8.30011 -0.003691 0 -0 0.974293</pose>
+    </include>
+
+    <include>
+      <name>oaktree2</name>
+      <uri>model://oak_tree</uri>
+      <pose>7.99408 6.94881 0 0 -0 0.088216</pose>
+    </include>
+
+    <include>
+      <name>oaktree3</name>
+      <uri>model://oak_tree</uri>
+      <pose>0.268404 8.12679 0 0 -0 1.53426</pose>
+    </include>
+
+    <include>
+      <name>oaktree4</name>
+      <uri>model://oak_tree</uri>
+      <pose>10.3253 -4.14915 0 0 -0 0.088216</pose>
+    </include>
+
+    <include>
+      <name>oaktree5</name>
+      <uri>model://oak_tree</uri>
+      <pose>-6.9438 2.82009 0 0 -0 0.088216</pose>
+    </include>
+
+    <include>
+      <name>pinetree1</name>
+      <uri>model://pine_tree</uri>
+      <pose>-3.14846 5.44222 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree2</name>
+      <uri>model://pine_tree</uri>
+      <pose>4.03472 8.21785 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree3</name>
+      <uri>model://pine_tree</uri>
+      <pose>7.70033 -0.362719 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree4</name>
+      <uri>model://pine_tree</uri>
+      <pose>8.7104 2.76761 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree5</name>
+      <uri>model://pine_tree</uri>
+      <pose>4.38077 -7.51752 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree6</name>
+      <uri>model://pine_tree</uri>
+      <pose>1.70495 -7.88282 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree7</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4.74841 -1.58031 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>pinetree8</name>
+      <uri>model://pine_tree</uri>
+      <pose>-5.31455 -4.80813 0 0 -0 0</pose>
+    </include> -->
+
+    <!-- <include>
+      <name>B1</name>
+      <uri>model://Block</uri>
+      <pose>1.302 3.12 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B2</name>
+      <uri>model://Block</uri>
+      <pose>1.383 3.12 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B3</name>
+      <uri>model://Block</uri>
+      <pose>1.464 3.12 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B4</name>
+      <uri>model://Block</uri>
+      <pose>1.545 3.12 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B5</name>
+      <uri>model://Block</uri>
+      <pose>1.626 3.12 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B6</name>
+      <uri>model://Block</uri>
+      <pose>1.707 3.12 1.040 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B7</name>
+      <uri>model://Block</uri>
+      <pose>1.343 3.12 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B8</name>
+      <uri>model://Block</uri>
+      <pose>1.424 3.12 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B9</name>
+      <uri>model://Block</uri>
+      <pose>1.505 3.12 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B10</name>
+      <uri>model://Block</uri>
+      <pose>1.586 3.12 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B11</name>
+      <uri>model://Block</uri>
+      <pose>1.667 3.12 1.121 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B12</name>
+      <uri>model://Block</uri>
+      <pose>1.383 3.12 1.202 0 0 0</pose>
+    </include>
+    <include>
+      <name>B13</name>
+      <uri>model://Block</uri>
+      <pose>1.464 3.12 1.202 0 0 0</pose>
+    </include>
+    <include>
+      <name>B14</name>
+      <uri>model://Block</uri>
+      <pose>1.545 3.12 1.202 0 0 0</pose>
+    </include>
+    <include>
+      <name>B15</name>
+      <uri>model://Block</uri>
+      <pose>1.626 3.12 1.202 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B16</name>
+      <uri>model://Block</uri>
+      <pose>1.424 3.12 1.283 0 0 0</pose>
+    </include>
+    <include>
+      <name>B17</name>
+      <uri>model://Block</uri>
+      <pose>1.505 3.12 1.283 0 0 0</pose>
+    </include>
+    <include>
+      <name>B18</name>
+      <uri>model://Block</uri>
+      <pose>1.586 3.12 1.283 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B19</name>
+      <uri>model://Block</uri>
+      <pose>1.464 3.12 1.364 0 0 0</pose>
+    </include>
+    <include>
+      <name>B20</name>
+      <uri>model://Block</uri>
+      <pose>1.545 3.12 1.364 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B21</name>
+      <uri>model://Block</uri>
+      <pose>1.505 3.12 1.445 0 0 0</pose>
+    </include> -->
+
+    <!-- <include>
+      <name>B22</name>
+      <uri>model://Block</uri>
+      <pose>1.302 3.019 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B23</name>
+      <uri>model://Block</uri>
+      <pose>1.383 3.019 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B24</name>
+      <uri>model://Block</uri>
+      <pose>1.464 3.019 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B25</name>
+      <uri>model://Block</uri>
+      <pose>1.545 3.019 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B26</name>
+      <uri>model://Block</uri>
+      <pose>1.626 3.019 1.040 0 0 0</pose>
+    </include>
+    <include>
+      <name>B27</name>
+      <uri>model://Block</uri>
+      <pose>1.707 3.019 1.040 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B28</name>
+      <uri>model://Block</uri>
+      <pose>1.343 3.019 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B29</name>
+      <uri>model://Block</uri>
+      <pose>1.424 3.019 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B30</name>
+      <uri>model://Block</uri>
+      <pose>1.505 3.019 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B31</name>
+      <uri>model://Block</uri>
+      <pose>1.586 3.019 1.121 0 0 0</pose>
+    </include>
+    <include>
+      <name>B32</name>
+      <uri>model://Block</uri>
+      <pose>1.667 3.019 1.121 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B33</name>
+      <uri>model://Block</uri>
+      <pose>1.383 3.019 1.202 0 0 0</pose>
+    </include>
+    <include>
+      <name>B34</name>
+      <uri>model://Block</uri>
+      <pose>1.464 3.019 1.202 0 0 0</pose>
+    </include>
+    <include>
+      <name>B35</name>
+      <uri>model://Block</uri>
+      <pose>1.545 3.019 1.202 0 0 0</pose>
+    </include>
+    <include>
+      <name>B36</name>
+      <uri>model://Block</uri>
+      <pose>1.626 3.019 1.202 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B37</name>
+      <uri>model://Block</uri>
+      <pose>1.424 3.019 1.283 0 0 0</pose>
+    </include>
+    <include>
+      <name>B38</name>
+      <uri>model://Block</uri>
+      <pose>1.505 3.019 1.283 0 0 0</pose>
+    </include>
+    <include>
+      <name>B39</name>
+      <uri>model://Block</uri>
+      <pose>1.586 3.019 1.283 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B40</name>
+      <uri>model://Block</uri>
+      <pose>1.464 3.019 1.364 0 0 0</pose>
+    </include>
+    <include>
+      <name>B41</name>
+      <uri>model://Block</uri>
+      <pose>1.545 3.019 1.364 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>B42</name>
+      <uri>model://Block</uri>
+      <pose>1.505 3.019 1.445 0 0 0</pose>
+    </include> -->
+
+  </world>
+</sdf>

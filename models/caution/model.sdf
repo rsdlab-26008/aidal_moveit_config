@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="caution">
+  <pose>0 0 0 0 0 0</pose>
+  <static>true</static>
+    <link name="caution">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="caution_visual">
+        <geometry><mesh><uri>model://caution/meshes/caution.dae</uri></mesh></geometry>
+        </visual>
+      <collision name="caution_collision">
+        <geometry><mesh><uri>model://caution/meshes/caution.dae</uri></mesh></geometry>
+      </collision>
+      </link>
+
+  </model>
+</sdf>

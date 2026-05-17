@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="D1_blue">
+  <pose>0 0 0 0 0 0</pose>
+    <link name="D1_blue">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="D1_blue_visual">
+        <geometry><mesh><uri>model://D1_blue/meshes/D1.stl</uri></mesh></geometry>
+        <material>
+        <script>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+          <name>Gazebo/Blue</name>
+        </script>
+        </material>
+      </visual>
+      <collision name="D1_blue_collision">
+
+        <geometry><mesh><uri>model://D1_blue/meshes/D1.stl</uri></mesh></geometry>
+
+        <!-- fix -->
+        <!-- <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+            <uri>model://D1_blue/meshes/D1.stl</uri>
+          </box>
+        </geometry> -->
+
+        <surface>
+
+          <!-- fix -->
+          <contact>
+            <ode>
+              <kp>5e5</kp>
+              <kd>200</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0.002</min_depth>
+            </ode>
+          </contact>
+
+          <friction>
+            <!-- <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode> -->
+
+            <!-- fix -->
+            <ode>
+              <mu>10.0</mu>
+              <mu2>10.0</mu2>
+              <slip1>0.01</slip1>
+              <slip2>0.01</slip2>
+            </ode>
+
+          </friction>
+        </surface>
+      </collision>
+      <inertial>
+        <!-- <mass>0.6</mass> -->
+        <mass>1</mass>
+
+        <!-- とりあえず動かす用の“仮”慣性（後で詰める） -->
+        <inertia>
+          <!-- <ixx>0.002</ixx>
+          <iyy>0.002</iyy>
+          <izz>0.002</izz> -->
+          <ixx>0.01</ixx>
+          <iyy>0.01</iyy>
+          <izz>0.01</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+  </model>
+</sdf>

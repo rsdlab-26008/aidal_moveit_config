@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="Block">
+    <pose>0 0 0 0 0 0</pose>
+    <static>false</static>
+
+    <link name="Block">
+      <pose>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>1.07e-4</ixx>
+          <iyy>1.07e-4</iyy>
+          <izz>1.07e-4</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="Block_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Wood</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name="Block_collision">
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.08</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>5.0</mu>
+              <mu2>5.0</mu2>
+            </ode>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0.0</restitution_coefficient>
+            <threshold>1000000</threshold>
+          </bounce>
+        </surface>
+      </collision>
+
+    </link>
+  </model>
+</sdf>
